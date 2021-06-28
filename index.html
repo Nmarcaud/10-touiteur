@@ -65,7 +65,7 @@
                     <h1 class="site-title display-1 py-5 fw-bold text-white"><i class="far fa-fw fa-frog"></i> Touiteur</h1>
                 </div>
                 <div class="col text-end">
-                    <p class="text-white display-6">The french alternative</p>
+                    <p class="text-white display-6">The french alternative !</p>
                 </div>
             </div>
         </div>
@@ -76,14 +76,9 @@
     <section>
         <div class="container">
 
-            <div class="row my-5 py-5">
+            <div class="row py-5">
 
-                <!-- Panneau de controle -->
-                <div class="col-3">
-
-                </div>
-
-                <!-- Flux -->
+                <!-- Publier -->
                 <div class="col-6">
 
                     <!-- Card de Touits -->
@@ -94,7 +89,7 @@
                                 <div class="row">
 
                                     <!-- Formulaire d'envoi de touits -->
-                                    <form action="#" method="post">
+                                    <form id="touit-form" method="post">
 
                                         <div class="col-12 mb-4">
                                             <h2 class="card-tilte">Touiter quelque-chose !</h2>
@@ -102,19 +97,19 @@
 
                                         <div class="col-12 mb-4">
                                             <!-- Champs pour rentré son pseudo (limité à 16 caractères) -->
-                                            <label for="pseudo" class="form-label">Mon pseudo</label>
-                                            <input type="text" class="form-control" id="pseudo" placeholder="Saisir mon pseudo">
+                                            <label for="pseudo" class="form-label">Mon pseudo<small class="text-muted"> - 16 caractères max</small></label>
+                                            <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Saisir mon pseudo" maxlength="16">
                                         </div>
 
                                         <div class="col-12 mb-4">
                                             <!-- Champs pour rentré son message (limité à 256 caractères) -->
-                                            <label for="touit" class="form-label">Mon touit</label>
-                                            <textarea class="form-control" id="touit" rows="5" placeholder="Saisir un touit"></textarea>
+                                            <label for="touit-message" class="form-label">Mon touit <small class="text-muted"> - 256 caractères max</small></label>
+                                            <textarea class="form-control" id="touit-message" name="touit-message" rows="4" placeholder="Saisir un touit" maxlength="256"></textarea>
                                         </div>
 
                                         <div class="col-12 d-flex justify-content-end">
                                             <!-- Un bouton pour valider et envoyer le touit -->
-                                            <button type="submit" class="btn submit-button text-white">Touiter <i class="far fa-fw fa-frog"></i></button>
+                                            <button id="submit-btn" type="submit" class="btn submit-button text-white">Touiter <i class="far fa-fw fa-frog"></i></button>
                                         </div>
 
                                     </form>
@@ -123,9 +118,12 @@
                             </div>
                         </div>  <!-- End - Card -->
                     </div>  <!-- End - div Touit -->
+                </div> <!-- End - Col Touit -->
 
 
-                    <!-- Une zone dans laquelle afficher les touits reçus -->
+                <!-- Flux -->
+                <div class="col-6">
+                      <!-- Une zone dans laquelle afficher les touits reçus -->
                     <!-- 
                         Vous utiliserez grid ou flexbox comme système de placement dans le HTML.
                         Il y aura un conteneur composé d'élément. Chaque élément enfant du conteneur représentera un touit.
@@ -134,7 +132,7 @@
                     -->
 
                     <!-- Card de réponses -->
-                    <div class="responses d-flex flex-column-reverse">
+                    <div id="responses" class="responses d-flex flex-column-reverse">
 
                         <!-- 1 touit -->
                         <div class="card mb-4">
@@ -197,11 +195,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-                <!-- Tendeance et suggestions -->
-                <div class="col-3"></div>
 
             </div>
             
@@ -209,21 +203,8 @@
 
     </section>
 
-    
-
-
-    
-
-
-    
-    
-
-
-
-    
-
-
-
+    <!-- Script de touitage -->
+    <script src="js/script.js"></script>
 
 </body>
 </html>

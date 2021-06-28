@@ -7,8 +7,7 @@ body {
     color: #000;
     background-color: #fff;
 }
-.hero,
-.card-header {
+.hero {
     background: #1D976C;  /* fallback for old browsers */
     background: linear-gradient(150deg, #4ade80, #06b6d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
@@ -44,12 +43,16 @@ h2 {
     transform: scale(1.05);
 }
 
+/* Reaction */
 .box-reaction {
     border-radius: 4rem;
     padding: 1rem 2rem;
 }
 
-/* Reaction */
+.react-icon {
+    transition: .4s;
+    cursor: pointer;
+}
 .react-icon:hover,
 .react-icon:focus {
     color:#06b6d4;
