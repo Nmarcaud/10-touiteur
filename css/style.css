@@ -1,0 +1,56 @@
+
+/* Typographie */
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+}
+.hero,
+.card-header {
+    background: #1D976C;  /* fallback for old browsers */
+    background: linear-gradient(150deg, #4ade80, #06b6d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+
+.card {
+    border:0;
+    box-shadow: 2px 2px 15px rgb(0 0 0 / 7%);
+    border-radius: 20px;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #06b6d4;
+}
+
+.form-control {
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+.submit-button {
+    font-size: 2rem;
+    padding: .6rem 3rem;
+    border-radius: 10px;
+    background-color: #06b6d4;
+    transition: .4s;
+}
+.submit-button:hover {
+    background-color: #4ade80;
+    transform: scale(1.05);
+}
+
+.box-reaction {
+    border-radius: 4rem;
+    padding: 1rem 2rem;
+}
+
+/* Reaction */
+.react-icon:hover,
+.react-icon:focus {
+    color:#06b6d4;
+}

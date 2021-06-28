@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Touiteur</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-iKbFRxucmOHIcpWdX9NTZ5WETOPm0Goy0WmfyNcl52qSYtc2Buk0NCe6jU1sWWNB" crossorigin="anonymous">
+
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!--Projet fil-rouge - Prérequis de la session
+        Durant cette session (ainsi que d'autres qui vont suivre), un projet "fil-rouge" va vous être donné. Il se nomme projet Touiteur.
+
+        Touiteur est un micro réseau social ou chacun est libre de partager un message avec d'autres utilisateurs.
+
+
+
+        Pour cette session, il vous est simplement demandé d'avoir une page web HTML & CSS prêt à être utiliser pour le projet. La page doit admettre :
+
+        Un formulaire d'envoi de touits contenant :
+        Un champs pour rentré son pseudo (limité à 16 caractères).
+        Un champs pour rentré son message (limité à 256 caractères).
+        Un bouton pour valider et envoyer le touit.
+        Une zone dans laquelle afficher les touits reçus :
+        Vous utiliserez grid ou flexbox comme système de placement dans le HTML.
+        Il y aura un conteneur composé d'élément. Chaque élément enfant du conteneur représentera un touit.
+        Les éléments enfants seront "écrit" dans le HTML dans l'ordre chronologique (le plus récent à la fin), cependant l'affichage sera du plus récent vers le plus ancien.
+        Chaque touit devra afficher le message ainsi que le pseudo de son auteur.
+
+
+        Vous pouvez également voir d'ores et déjà plus loin dans le projet en y incluant le HTML & CSS des fonctionnalités suivantes (cette partie est facultative et pourra être fait ultérieurement) :
+
+        Un système en grid ou flexbox pour afficher les mots les plus couramment utilisés (que l'on pourrait appeler "trending").
+        Un système pour "aimer" un touit.
+        Un système pour commenter et voir la liste des commentaires d'un touit (via une modale, autre fenêtre ou directement dans le touit).
+        Une zone qui affiche les touits aillant reçu le plus de "like" (peut être comparable à la zone des touits reçu).
+        Un moyen de mettre en évidence les touits des auteurs les plus actifs (que l'on pourrait appeler "influenceurs").
+    -->
+
+    <section class="hero">
+
+        <div class="container">
+            <div class="row d-flex justify-content-between align-items-center">
+                <div class="col">
+                    <h1 class="site-title display-1 py-5 fw-bold text-white"><i class="far fa-fw fa-frog"></i> Touiteur</h1>
+                </div>
+                <div class="col text-end">
+                    <p class="text-white display-6">The french alternative</p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+
+    <section>
+        <div class="container">
+
+            <div class="row my-5 py-5">
+
+                <!-- Panneau de controle -->
+                <div class="col-3">
+
+                </div>
+
+                <!-- Flux -->
+                <div class="col-6">
+
+                    <!-- Card de Touits -->
+                    <div class="touit">
+                        <div class="card mb-5">
+                            <div class="card-body p-5">
+
+                                <div class="row">
+
+                                    <!-- Formulaire d'envoi de touits -->
+                                    <form action="#" method="post">
+
+                                        <div class="col-12 mb-4">
+                                            <h2 class="card-tilte">Touiter quelque-chose !</h2>
+                                        </div>
+
+                                        <div class="col-12 mb-4">
+                                            <!-- Champs pour rentré son pseudo (limité à 16 caractères) -->
+                                            <label for="pseudo" class="form-label">Mon pseudo</label>
+                                            <input type="text" class="form-control" id="pseudo" placeholder="Saisir mon pseudo">
+                                        </div>
+
+                                        <div class="col-12 mb-4">
+                                            <!-- Champs pour rentré son message (limité à 256 caractères) -->
+                                            <label for="touit" class="form-label">Mon touit</label>
+                                            <textarea class="form-control" id="touit" rows="5" placeholder="Saisir un touit"></textarea>
+                                        </div>
+
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <!-- Un bouton pour valider et envoyer le touit -->
+                                            <button type="submit" class="btn submit-button text-white">Touiter <i class="far fa-fw fa-frog"></i></button>
+                                        </div>
+
+                                    </form>
+                                </div>  <!-- End - Row -->
+
+                            </div>
+                        </div>  <!-- End - Card -->
+                    </div>  <!-- End - div Touit -->
+
+
+                    <!-- Une zone dans laquelle afficher les touits reçus -->
+                    <!-- 
+                        Vous utiliserez grid ou flexbox comme système de placement dans le HTML.
+                        Il y aura un conteneur composé d'élément. Chaque élément enfant du conteneur représentera un touit.
+                        Les éléments enfants seront "écrit" dans le HTML dans l'ordre chronologique (le plus récent à la fin), cependant l'affichage sera du plus récent vers le plus ancien.
+                        Chaque touit devra afficher le message ainsi que le pseudo de son auteur.
+                    -->
+
+                    <!-- Card de réponses -->
+                    <div class="responses d-flex flex-column-reverse">
+
+                        <!-- 1 touit -->
+                        <div class="card mb-4">
+                            <div class="card-body p-5">
+
+                                <!-- Avatar et Pseudo -->
+                                <div class="row mb-3">
+                                    <div class="col d-flex align-items-center">
+
+                                        <!-- User Avatar-->
+                                        <span class="user-avatar me-3">
+                                            <i class="far fa-fw fa-bat"></i>
+                                        </span>
+
+                                        <!-- User Pseudo -->
+                                        <p class="pseudo">Batman</p>
+
+                                        <!-- Suppression -->
+                                        <span class="ms-auto react-icon">
+                                            <i class="far fa-fw fa-times"></i>
+                                        </span>
+
+                                    </div>
+                                </div> <!-- End Row Avatar et pseudo -->
+
+                                <!-- Touit -->
+                                <div class="row mb-3">
+                                    <div class="col">
+
+                                        <!-- Touit -->
+                                        <p class="pseudo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non repellendus odit repudiandae distinctio, id, tempora rem quo natus facere officia quibusdam praesentium ab laborum, recusandae nostrum esse nisi eveniet inventore.</p>
+
+                                    </div>
+                                </div> <!-- End Row Touit -->
+
+                                <!-- Date / heure publication -->
+                                <div class="row mb-3">
+                                    <div class="col">
+
+                                        <!-- Touit date -->
+                                        <small class="date-touit text-muted">26/04/21 à 9h03</small>
+
+                                    </div>
+                                </div> <!-- End Row date publication -->
+
+                                <!-- Réaction -->
+                                <div class="row mb-3">
+                                    <div class="col d-flex">
+
+                                        <div class="box-reaction bg-light">
+                                            <span class="mx-2 react-icon comment-icon"><i class="far fa-fw fa-comment"></i></span>
+                                            <span class="mx-2 react-icon retouit-icon"><i class="far fa-fw fa-retweet"></i></span>
+                                            <span class="mx-2 react-icon love-icon"><i class="far fa-fw fa-heart"></i></span>
+                                            <span class="mx-2 react-icon share-icon"><i class="far fa-fw fa-share"></i></span>
+                                        </div>
+
+                                    </div>
+                                </div> <!-- End Row reaction -->
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Tendeance et suggestions -->
+                <div class="col-3"></div>
+
+            </div>
+            
+        </div>
+
+    </section>
+
+    
+
+
+    
+
+
+    
+    
+
+
+
+    
+
+
+
+
+</body>
+</html>
