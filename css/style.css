@@ -9,7 +9,7 @@ body {
 }
 .hero {
     background: #1D976C;  /* fallback for old browsers */
-    background: linear-gradient(150deg, #4ade80, #06b6d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(150deg,#4ade80, #06b6d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 
@@ -18,12 +18,18 @@ body {
     border:0;
     box-shadow: 2px 2px 15px rgb(0 0 0 / 7%);
     border-radius: 20px;
+    transition: .4s;
 }
-
-h2 {
-    font-size: 3rem;
+article:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+.card-tilte {
     font-weight: 600;
     color: #06b6d4;
+}
+h2 {
+    font-size: 3rem;
 }
 
 .form-control {
@@ -41,6 +47,10 @@ h2 {
 .submit-button:hover {
     background-color: #4ade80;
     transform: scale(1.05);
+}
+
+.touit-message {
+    word-break: break-word;
 }
 
 /* Reaction */
@@ -64,4 +74,48 @@ h2 {
 
 .comment-color-icon {
     color:#5E9CEA;
+}
+
+
+.most-used {
+    background: #06b6d4;
+    color: white;
+    padding: .5rem 2rem;
+    border-radius: 1rem;
+    margin-right: 2.5rem;
+    margin-bottom: 2rem;
+    transition: .4s;
+}
+.most-used:focus,
+.most-used:hover {
+    background: #4ade80;
+    cursor: pointer;
+}
+
+
+.comment {
+    background-color: #E5E8E7;
+    margin: 1rem 0;
+    border-radius: 15px;
+}
+
+
+
+.submit-comment-button {
+    font-size: 1.5rem;
+    padding: .4rem 2rem;
+    border-radius: 10px;
+    background-color: #06b6d4;
+    transition: .4s;
+    color:white;
+}
+.submit-comment-button:hover {
+    background-color: #4ade80;
+    transform: scale(1.05);
+}
+
+
+
+.influenceur-bg {
+    background-color: #FDE68A;
 }

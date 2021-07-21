@@ -81,49 +81,67 @@
                 <!-- Publier -->
                 <div class="col-12 col-md-6">
 
-                    <!-- Card de Touits -->
-                    <div class="touit">
-                        <div class="card mb-5">
-                            <div class="card-body p-5">
+                    <!-- Card form touit -->
+                    <div class="touit card mb-4">
+                        <div class="card-body p-5">
 
-                                <div class="row">
+                            <div class="row">
 
-                                    <!-- Formulaire d'envoi de touits -->
-                                    <form id="touit-form" method="post">
+                                <!-- Formulaire d'envoi de touits -->
+                                <form id="touit-form" method="post">
 
-                                        <div class="col-12 mb-4">
-                                            <h2 class="card-tilte">Touiter quelque-chose !</h2>
-                                        </div>
+                                    <div class="col-12 mb-4">
+                                        <h2 class="card-tilte">Touiter quelque-chose !</h2>
+                                    </div>
 
-                                        <div class="col-12 mb-4">
-                                            <!-- Champs pour rentré son pseudo (limité à 16 caractères) -->
-                                            <label for="pseudo" class="form-label">Mon pseudo<small class="text-muted"> - 16 caractères max</small></label>
-                                            <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Saisir mon pseudo" maxlength="16">
-                                        </div>
+                                    <div class="col-12 mb-4">
+                                        <!-- Champs pour rentré son pseudo (limité à 16 caractères) -->
+                                        <label for="pseudo" class="form-label">Mon pseudo<small class="text-muted"> - 16 caractères max</small></label>
+                                        <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Saisir mon pseudo" maxlength="16">
+                                    </div>
 
-                                        <div class="col-12 mb-4">
-                                            <!-- Champs pour rentré son message (limité à 256 caractères) -->
-                                            <label for="touit-message" class="form-label">Mon touit <small class="text-muted"> - 256 caractères max</small></label>
-                                            <textarea class="form-control" id="touit-message" name="touit-message" rows="4" placeholder="Saisir un touit" maxlength="256"></textarea>
-                                        </div>
+                                    <div class="col-12 mb-4">
+                                        <!-- Champs pour rentré son message (limité à 256 caractères) -->
+                                        <label for="touit-message" class="form-label">Mon touit <small class="text-muted"> - 256 caractères max</small></label>
+                                        <textarea class="form-control" id="touit-message" name="touit-message" rows="4" placeholder="Saisir un touit" maxlength="256"></textarea>
+                                    </div>
 
-                                        <div class="col-12 d-flex justify-content-end">
-                                            <!-- Un bouton pour valider et envoyer le touit -->
-                                            <button id="submit-btn" type="submit" class="btn submit-button text-white">Touiter <i class="far fa-fw fa-frog"></i></button>
-                                        </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <!-- Un bouton pour valider et envoyer le touit -->
+                                        <button id="submit-btn" type="submit" class="btn submit-button text-white">Touiter <i class="far fa-fw fa-frog"></i></button>
+                                    </div>
 
-                                    </form>
-                                </div>  <!-- End - Row -->
+                                </form>
+                            </div>  <!-- End - Row -->
+
+                        </div>
+                    </div>  <!-- End - Card Touit-->
+
+
+                    <!-- Liste des mots les plus utilisés -->
+                    <div class="card mb-4">
+                        <div class="card-body p-5">
+
+                            <div class="row">
+
+                                <div class="col-12 mb-4">
+                                    <h3 class="card-tilte mb-3">Mots les plus utilisés</h3>
+                                </div>
+
+                                <ul id="trending-list" class="d-flex flex-wrap" role="list"></ul>
 
                             </div>
-                        </div>  <!-- End - Card -->
-                    </div>  <!-- End - div Touit -->
+
+                        </div>
+                    </div>
+                    
                 </div> <!-- End - Col Touit -->
 
 
                 <!-- Flux -->
                 <div class="col-12 col-md-6">
-                      <!-- Une zone dans laquelle afficher les touits reçus -->
+                    
+                    <!-- Une zone dans laquelle afficher les touits reçus -->
                     <!-- 
                         Vous utiliserez grid ou flexbox comme système de placement dans le HTML.
                         Il y aura un conteneur composé d'élément. Chaque élément enfant du conteneur représentera un touit.
@@ -131,6 +149,12 @@
                         Chaque touit devra afficher le message ainsi que le pseudo de son auteur.
                     -->
 
+                    <h3 class="fw-bold text-muted mb-3">Les touits les plus aimés par vos compatriotes</h3>
+                    <div id="responses-most-like"></div>
+
+                    <hr class="my-5">
+
+                    
                     <!-- Card de réponses -->
                     <div id="responses" class="responses d-flex flex-column-reverse">
 
@@ -194,7 +218,6 @@
 
                             </div>
                         </div>
-                    </div>
                     <div id="ajax" class="responses d-flex flex-column-reverse"></div>
                 </div>
 
@@ -204,8 +227,63 @@
 
     </section>
 
+
+
+    <!-- Modal des commentaires -->
+    <div id="comment-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Commentaires</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div id="comments-zone" class="modal-dialog modal-dialog-scrollable"></div>
+                    
+                    <form id="comment-form" method="post" class="row">
+
+                        <input type="hidden" class="form-control" id="comment-post-id" name="comment-post-id">
+
+                        <div class="col-12 mb-4">
+                            <!-- Champs pour rentré son pseudo (limité à 16 caractères) -->
+                            <label for="pseudo" class="form-label">Mon pseudo<small class="text-muted"> - 16 caractères max</small></label>
+                            <input type="text" class="form-control" id="comment-pseudo" name="comment-pseudo" placeholder="Saisir mon pseudo" maxlength="16">
+                        </div>
+
+                        <div class="col-12 mb-4">
+                            <!-- Champs pour rentré son message (limité à 256 caractères) -->
+                            <label for="touit-message" class="form-label">Mon touit <small class="text-muted"> - 256 caractères max</small></label>
+                            <textarea class="form-control" id="comment-message" name="comment-message" rows="4" placeholder="Saisir un commentaire" maxlength="256"></textarea>
+                        </div>
+
+                        <div class="col-12 d-flex justify-content-end">
+                            <!-- Un bouton pour valider et envoyer le touit -->
+                            <button id="submit-btn" type="submit" class="btn submit-button text-white">Valider <i class="far fa-fw fa-frog"></i></button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Script Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
     <!-- Script de touitage -->
+    <script src="js/get-one-touit.js"></script>
+    <script src="js/most-like.js"></script>
+    <script src="js/influencer.js"></script>
+    <script src="js/comments.js"></script>
+    <script src="js/like.js"></script>
+    <script src="js/trending.js"></script>
     <script src="js/script.js"></script>
+    
 
 </body>
 </html>
